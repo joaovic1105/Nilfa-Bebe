@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nilfa Bebê</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333;
+        }
+        header {
+            background-color: #ff69b4; /* Rosa */
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #1e90ff; /* Azul */
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .content {
+            padding: 20px;
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .tab {
+            display: none;
+        }
+        .tab.active {
+            display: block;
+        }
+        .product {
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 10px;
+            display: inline-block;
+            width: 220px; /* Largura do quadrado */
+            background-color: #fff; /* Fundo dos produtos */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .product img {
+            width: 220px; /* Tamanho fixo para todas as imagens */
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .cart {
+            margin-top: 20px;
+            text-align: center; /* Centraliza o texto */
+        }
+        .cart h3 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nilfa Bebê</h1>
+    </header>
+    <nav>
+        <a href="#" onclick="showSection('produtos')">Produtos</a>
+        <a href="#" onclick="showSection('sobre')">Sobre a Loja</a>
+        <a href="#" onclick="showSection('contato')">Contato</a>
+        <a href="#" onclick="showSection('carrinho')">Carrinho (<span id="cart-count">0</span>)</a>
+    </nav>
+    
+    <div id="produtos" class="content active">
+        <h2>Produtos</h2>
+        <div>
+            <button onclick="showTab('roupas')">Roupas</button>
+            <button onclick="showTab('mobiles')">Móbiles</button>
+            <button onclick="showTab('acessorios')">Acessórios</button>
+        </div>
+        <div id="roupas" class="tab active">
+            <h3>Roupas</h3>
+            <div class="product-container">
+                <div class="product">
+                    <h3>Body de Algodão</h3>
+                    <p><strong>Preço:</strong> R$ 59,90</p>
+                    <button onclick="addToCart('Body de Algodão', 59.90)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <h3>Conjunto de Fraldas de Pano</h3>
+                    <p><strong>Preço:</strong> R$ 299,90</p>
+                    <button onclick="addToCart('Conjunto de Fraldas de Pano', 299.90)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <h3>Vestido para Bebê</h3>
+                    <p><strong>Preço:</strong> R$ 89,90</p>
+                    <button onclick="addToCart('Vestido para Bebê', 89.90)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <h3>Macacão de Bebê</h3>
+                    <p><strong>Preço:</strong> R$ 69,90</p>
+                    <button onclick="addToCart('Macacão de Bebê', 69.90)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <h3>Calça de Malha</h3>
+                    <p><strong>Preço:</strong> R$ 49,90</p>
+                    <button onclick="addToCart('Calça de Malha', 49.90)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <h3>Camisa de Bebê</h3>
+                    <p><strong>Preço:</strong> R$ 39,90</p>
+                    <button onclick="addToCart('Camisa de Bebê', 39.90)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <h3>Conjunto de Inverno</h3>
+                    <p><strong>Preço:</strong> R$ 129,90</p>
+                    <button onclick="addToCart('Conjunto de Inverno', 129.90)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <h3>Macacão de Lã</h3>
+                    <p><strong>Preço:</strong> R$ 99,90</p>
+                    <button onclick="addToCart('Macacão de Lã', 99.90)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <h3>Roupão de Banho</h3>
+                    <p><strong>Preço:</strong> R$ 69,90</p>
+                    <button onclick="addToCart('Roupão de Banho', 69.90)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <h3>Meias de Bebê</h3>
+                    <p><strong>Preço:</strong> R$ 19,90</p>
+                    <button onclick="addToCart('Meias de Bebê', 19.90)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+        <div id="mobiles" class="tab">
+            <h3>Móbiles</h3>
+            <div class="product-container">
+                <div class="product">
+                    <h3>Móbile Musical</h3>
+                    <img src="img1/mobile musical.jpg" alt="Móbile Musical">
+                    <p><strong>Preço:</strong> R$ 149,90</p>
+                    <button onclick="addToCart('Móbile Musical', 149.90)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <h3>Móbile de Animais</h3>
+                    <img src="img1/mobile animal.webp" alt="Móbile de Animais">
+                    <p><strong>Preço:</strong> R$ 129,90</p>
+                    <button onclick="addToCart('Móbile de Animais', 129.90)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <h3>Móbile de Estrelas</h3>
+                    <img src="img1/mobile de estrela.jpg" alt="Móbile de Estrelas">
+                    <p><strong>Preço:</strong> R$ 139,90</p>
+                    <button onclick="addToCart('Móbile de Estrelas', 139.90)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <h3>Móbile com Luzes</h3>
+                    <img src="img1/mobile com luz.jpg" alt="Móbile com Luzes">
+                    <p><strong>Preço:</strong> R$ 159,90</p>
+                    <button onclick="addToCart('Móbile com Luzes', 159.90)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <h3>Móbile de Flores</h3>
+                    <img src="img1/mobile de flores.webp" alt="Móbile de Flores">
+                    <p><strong>Preço:</strong> R$ 119,90</p>
+                    <button onclick="addToCart('Móbile de Flores', 119.90)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <h3>Móbile de Nuvens</h3>
+                    <img src="img1/mobile de nuvem.webp" alt="Móbile de Nuvens">
+                    <p><strong>Preço:</strong> R$ 139,90</p>
+                    <button onclick="addToCart('Móbile de Nuvens', 139.90)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+        <div id="acessorios" class="tab">
+            <h3>Acessórios</h3>
+            <div class="product-container">
+                <div class="product">
+                    <h3>Chupeta Anti-Engasgo</h3>
+                    <p><strong>Preço:</strong> R$ 19,90</p>
+                    <button onclick="addToCart('Chupeta Anti-Engasgo', 19.90)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <h3>Alça de Segurança</h3>
+                    <p><strong>Preço:</strong> R$ 39,90</p>
+                    <button onclick="addToCart('Alça de Segurança', 39.90)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <h3>Protetor de Bebê</h3>
+                    <p><strong>Preço:</strong> R$ 29,90</p>
+                    <button onclick="addToCart('Protetor de Bebê', 29.90)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <h3>Organizador de Fraldas</h3>
+                    <p><strong>Preço:</strong> R$ 89,90</p>
+                    <button onclick="addToCart('Organizador de Fraldas', 89.90)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <h3>Toalha de Banho</h3>
+                    <p><strong>Preço:</strong> R$ 39,90</p>
+                    <button onclick="addToCart('Toalha de Banho', 39.90)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <h3>Kit de Escova e Pente</h3>
+                    <p><strong>Preço:</strong> R$ 24,90</p>
+                    <button onclick="addToCart('Kit de Escova e Pente', 24.90)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sobre" class="content">
+        <h2>Sobre a Loja</h2>
+        <p>A Nilfa Bebê é uma loja dedicada a oferecer os melhores produtos para o seu bebê. Trabalhamos com carinho e qualidade, visando sempre o bem-estar e a satisfação de nossos clientes.</p>
+    </div>
+
+    <div id="contato" class="content">
+        <h2>Contato</h2>
+        <p>Para mais informações, entre em contato conosco pelo e-mail: contato@nilfabebe.com.br</p>
+    </div>
+
+    <div id="carrinho" class="content">
+        <h2>Carrinho</h2>
+        <div class="cart" id="cart"></div>
+    </div>
+
+    <script>
+        let cartItems = [];
+        
+        function showSection(section) {
+            document.querySelectorAll('.content').forEach((div) => {
+                div.classList.remove('active');
+            });
+            document.getElementById(section).classList.add('active');
+        }
+
+        function showTab(tab) {
+            document.querySelectorAll('.tab').forEach((div) => {
+                div.classList.remove('active');
+            });
+            document.getElementById(tab).classList.add('active');
+        }
+
+        function addToCart(itemName, itemPrice) {
+            cartItems.push({ name: itemName, price: itemPrice });
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartDiv = document.getElementById('cart');
+            cartDiv.innerHTML = ''; // Limpa o carrinho
+            let total = 0;
+            cartItems.forEach(item => {
+                cartDiv.innerHTML += `<p>${item.name} - R$ ${item.price.toFixed(2)}</p>`;
+                total += item.price;
+            });
+            cartDiv.innerHTML += `<h3>Total: R$ ${total.toFixed(2)}</h3>`;
+            document.getElementById('cart-count').textContent = cartItems.length; // Atualiza a contagem do carrinho
+        }
+    </script>
+</body>
+</html>
